@@ -1,5 +1,5 @@
 <?php
-require "../includes/header1.php";
+require "../includes/header.php";
 ?>
 <body>
 <div class="container">
