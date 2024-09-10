@@ -1,0 +1,33 @@
+<?php
+ $num_to_guess = 42;
+ $message = "";
+ if ( ! isset( $_POST['guess'] ) ) {
+    $message = "Welcome to the guessing machine!";
+  } else if ( $_POST['guess'] > $num_to_guess ) {
+     $message = $_POST['guess']." is too big! Try a smaller number";
+  } else if ( $_POST['guess'] < $num_to_guess ) {
+     $message = $_POST['guess']." is too small! Try a larger number";
+ } else { // must be equivalent
+    $message = "Well done!";
+ }
+
+?>
+ <!DOCTYPE html PUBLIC
+     "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html>
+<head>
+ <title>Listing 10.7 A PHP Number Guessing Script</title>
+ </head>
+ <body>
+ <h1>
+ <?php print $message ?>
+ </h1>
+ <form method="post" action="<?php print $_SERVER['PHP_SELF']?>">
+ <p>
+ Type your guess here: <input type="text" name="guess" />
+ <input type="submit" value="submit" />
+ </p>
+ </form>
+ </body>
+</html>
