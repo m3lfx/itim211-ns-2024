@@ -1,7 +1,9 @@
 <?php
-print_r($_FILES);
-$name = $_POST['artistName'];
-$country = $_POST['country'];
+include "../includes/config.php";
+// print_r($_FILES);
+$name = trim($_POST['artistName']);
+$country = trim($_POST['country']);
+
 // $img_path = $_POST['image'];
 print "<h1>$name</h1>";
 if ( isset( $_FILES['image'] ) ) {
@@ -12,7 +14,7 @@ if ( isset( $_FILES['image'] ) ) {
     print "type: ".     $_FILES['image']['type']       ."<br />";
     print "error: ".    $_FILES['image']['error']      ."<br />";
 
-    if ( $_FILES['image']['type'] == "image/png" ) {
+    if ( $_FILES['image']['type'] == "image/png" || $_FILES['image']['type'] == "image/jpg"  ) {
 
         $source = $_FILES['image']['tmp_name'];
         $target = "upload/".$_FILES['image']['name'];
@@ -23,6 +25,15 @@ if ( isset( $_FILES['image'] ) ) {
         $imgstr .= "src=\"$target\" alt=\"uploaded image\" /></p>";
 
         print $imgstr;
+    }
+
+    $sql = "INSERT INTO artists (name,country,img_path) VALUES('$name', '$country','$target')";
+    echo $sql;
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_affected_rows($conn) > 0) {
+        header("Location: index.php");
+        // echo "artist saved";
+        
     }
 }
 ?>
