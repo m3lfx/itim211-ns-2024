@@ -22,12 +22,12 @@ $result = mysqli_query($conn, $sql);
                     name="genre">
             </div>
             <div class="form-group">
-                <label for="genre">Genre</label>
-                <input type="date" class="form-control" id="country" placeholder="artist country"
-                    name="genre">
+                <label for="dateRelease">Genre</label>
+                <input type="date" class="form-control" id="dateRelease" placeholder="artist country"
+                    name="date_released">
             </div>
             <div class="form-group">
-                <select name="artist" class="form-control">
+                <select name="artist_id" class="form-control">
                     <?php
                     while($row = mysqli_fetch_assoc($result)){
                         echo "<option value={$row['artist_id']}>{$row['name']}</option>";
