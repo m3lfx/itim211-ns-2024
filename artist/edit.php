@@ -12,7 +12,7 @@ $row = mysqli_fetch_assoc($result);
 <body>
 
     <div class="container-fluid">
-        <form action="store.php" method="POST" enctype="multipart/form-data">
+        <form action="update.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="artistName">Artist name</label>
                 <input type="text" class="form-control" id="artistName" aria-describedby="emailHelp" placeholder="Enter name"
@@ -30,15 +30,15 @@ $row = mysqli_fetch_assoc($result);
                     name="image">
             </div>
             <div>
-            <img width='50' height='50' src="<?php echo "{$row['img_path']}"; ?>" alt='uploaded image' /></td>
-           
-            </div>
+                <img width='50' height='50' src="<?php echo "{$row['img_path']}"; ?>" alt='uploaded image' /></td>
 
+            </div>
+            <input type="hidden" name="artistId" value="<?php echo "{$row['artist_id']}"; ?>">
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
     </div>
-<?php
-include "../includes/footer.php";
-?>
+    <?php
+    include "../includes/footer.php";
+    ?>
