@@ -27,7 +27,10 @@ if ( isset( $_FILES['image'] ) ) {
         print $imgstr;
     }
 
-    $sql = "INSERT INTO artists (name,country,img_path) VALUES('$name', '$country','$target')";
+    
+}
+
+$sql = "INSERT INTO artists (name,country,img_path) VALUES('$name', '$country','$target')";
     echo $sql;
     $result = mysqli_query($conn, $sql);
     if(mysqli_affected_rows($conn) > 0) {
@@ -35,5 +38,4 @@ if ( isset( $_FILES['image'] ) ) {
         // echo "artist saved";
         
     }
-}
 ?>
