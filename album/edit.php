@@ -45,7 +45,7 @@ $artists = mysqli_query($conn, $sql);
                 </select>
             </div>
 
-
+            <input type="hidden" name="albumId" value="<?php echo "{$album_id}"; ?>">
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
