@@ -30,7 +30,7 @@ $row = mysqli_fetch_assoc($result);
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image" name="listenerImage">
         </div>
-        <input type="hidden" id="userId" name="userId" value="<?php echo $row['user_id']; ?>">
+       
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
