@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
+        header("Location: ../index.php");
     }
 }
 ?>
