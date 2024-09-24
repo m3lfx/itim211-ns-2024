@@ -1,6 +1,6 @@
 <?php
-    include("../include/header.php");
-    include("../include/config.php");
+    include("../includes/header.php");
+    include("../includes/config.php");
 ?>
 <div class="container-fluid container-lg">
     <form action="store.php" method="POST">
