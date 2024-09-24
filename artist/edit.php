@@ -1,6 +1,11 @@
 <?php
+session_start();
 include "../includes/header.php";
 include "../includes/config.php";
+if (!isset($_SESSION['email'])) {
+    $_SESSION['message'] = "please Login to access the page";
+    header("Location: ../user/login.php" );
+}
 $artist_id = $_GET['id'];
 // echo $artist_id;
 $sql = "SELECT * FROM artists WHERE artist_id = $artist_id LIMIT 1";

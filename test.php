@@ -18,7 +18,11 @@
      print "<li>$p</li>";
    }
    print "</ol>";
+  
  }
+
+
+
  ?>
  <a href="test4.php">Back to product choice page</a>
  </div>

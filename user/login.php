@@ -1,20 +1,34 @@
 <?php
-
+session_start();
 include("../includes/header.php");
 include("../includes/config.php");
+print_r($_SESSION);
+if (isset($_SESSION['email'])) {
+   
+    header("Location: ../index.php" );
+}
 
 if (isset($_POST['submit'])) {
     $email = trim($_POST['email']);
    
     $pass = hash('sha256', trim($_POST['password']));
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$pass' LIMIT 1";
+    $sql = "SELECT email FROM users WHERE email='$email' AND password='$pass' LIMIT 1";
 
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['email'] = $row['email'];
         header("Location: ../index.php");
     }
+}
+if (isset($_SESSION['message'])) {
+    // var_dump($_SESSION);
+    echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>
+    <strong>{$_SESSION['message']}</strong>
+    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+    unset($_SESSION['message']);
+    
 }
 ?>
 <div class="row col-md-8 mx-auto ">
