@@ -27,6 +27,7 @@ include "../includes/header.php";
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+</body>
     <?php
     include "../includes/footer.php";
     ?>
